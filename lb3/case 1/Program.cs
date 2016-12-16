@@ -8,20 +8,20 @@ namespace case_1
 {
     class RangeOfArray
     {
-        public int LowerBount;
-        public int UpperBount;
+        public int lowerBount;
+        public int upperBount;
         public int [] Arr;          
-        public RangeOfArray (int UpperIndex, int LowerIndex)
+        public RangeOfArray (int upperIndex, int lowerIndex)
         {
-            this.LowerBount = LowerIndex;
-            this.UpperBount = UpperIndex;
-            Arr=new int[Math.Abs(UpperIndex-LowerIndex)+1];  
+            this.lowerBount = lowerIndex;
+            this.upperBount = upperIndex;
+            Arr=new int[Math.Abs(upperIndex - lowerIndex) +1];  
         }   
-        public void Print(RangeOfArray mass, int LowerIndex)
+        public void Print(RangeOfArray mass, int lowerIndex)
         {
             for (int i = 0; i < Arr.Length; i++)
             {
-                Console.WriteLine($"{i + LowerIndex} элемент массива равен = " + Arr[i]);
+                Console.WriteLine($"{i + lowerIndex} элемент массива равен = " + Arr[i]);
             }  
         }
     }
@@ -32,19 +32,19 @@ namespace case_1
         {
             Random rand = new Random();
             Console.WriteLine("Введите нижний индекс диапазона массива");
-            int LowerIndex = Convert.ToInt32(Console.ReadLine());
+            int lowerIndex = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите верхний индекс диапазона массива");
-            int UpperIndex = Convert.ToInt32(Console.ReadLine());
+            int pperIndex = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
-            if (!(LowerIndex>UpperIndex))
+            if (!(lowerIndex > pperIndex))
             {
-                Console.WriteLine("Нижний индекс равен {0} верхний индекс равен {1}", LowerIndex, UpperIndex);   
-                RangeOfArray Array = new RangeOfArray(UpperIndex, LowerIndex);   
-                for (int i = 0; i < Array.Arr.Length; i++)
-                {         
-                    Array.Arr[i] = rand.Next(10);
+                Console.WriteLine("Нижний индекс равен {0} верхний индекс равен {1}", lowerIndex, pperIndex);   
+                RangeOfArray array = new RangeOfArray(pperIndex, lowerIndex);   
+                for (int i = 0; i < array.Arr.Length; i++)
+                {
+                    array.Arr[i] = rand.Next(10);
                 }
-                Array.Print(Array, LowerIndex);  
+                array.Print(array, lowerIndex);  
             }
             else
             {
