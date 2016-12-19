@@ -48,7 +48,7 @@ namespace case_1
             }
             else
             {
-               Console.WriteLine("Введены не корректные индексы"); 
+               Console.WriteLine("Введены некорректные индексы"); 
             }  
         }
     }
