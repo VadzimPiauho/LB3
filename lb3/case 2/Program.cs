@@ -3,15 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bankomat.Accountspace;
+using Bankomat.Bancspace;
+using Bankomat.Clientspace;
 
 namespace Bankomat
 {
     namespace Bancspace
     {
-        class MyClass
+        class Banc
         {
             public Bankomat.Clientspace.Client objClient;
-        }
+
+            public object firstName { get; private set; }
+
+            public string Print()
+            {
+                return
+                    $"Клиент:  {objClient.firstName} {objClient.lastName}\nНомер счета: {objClient.objAccount.accountNumber}\nСумма на счете: {objClient.objAccount.amount}";
+            }
+
+
+
+        }  
     }
 
     namespace Clientspace
@@ -39,6 +53,11 @@ namespace Bankomat
     {
         static void Main(string[] args)
         {
+            
+            var clientBanc = new Banc();
+            clientBanc.objClient = new Client();
+            clientBanc.objClient.objAccount = new Account();
+
             bool go_on = true;
             while (go_on)
             {
@@ -49,12 +68,13 @@ namespace Bankomat
                 Console.WriteLine("2 - Пополнить счет");
                 Console.WriteLine("3 - Снять деньги со счета");
                 Console.WriteLine("4 - Выход");
-                Console.WriteLine("*******************************");
-                char test = Convert.ToChar(Console.ReadLine());
-                switch (test)
+                Console.WriteLine("*******************************"); 
+                switch (Console.ReadKey().KeyChar)
                 {
-                    case '1':
-                        //PrintFile();
+                    case '1':   
+                        Console.WriteLine();
+                        Console.WriteLine(clientBanc.Print());
+                        Console.ReadKey();
                         break;
                     case '2':
                         //AddRecord();
@@ -66,7 +86,7 @@ namespace Bankomat
                         go_on = false;
                         break;
                     default:
-                        Console.WriteLine("Неверный выбор");
+                        Console.WriteLine("\nНеверный выбор");
                         Console.ReadKey();
                         break;
                 }
