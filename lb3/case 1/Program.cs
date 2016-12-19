@@ -34,12 +34,12 @@ namespace case_1
             Console.WriteLine("Введите нижний индекс диапазона массива");
             int lowerIndex = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите верхний индекс диапазона массива");
-            int pperIndex = Convert.ToInt32(Console.ReadLine());
+            int uperIndex = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
-            if (!(lowerIndex > pperIndex))
+            if (!(lowerIndex > uperIndex))
             {
-                Console.WriteLine("Нижний индекс равен {0} верхний индекс равен {1}", lowerIndex, pperIndex);   
-                RangeOfArray array = new RangeOfArray(pperIndex, lowerIndex);   
+                Console.WriteLine("Нижний индекс равен {0} верхний индекс равен {1}", lowerIndex, uperIndex);   
+                RangeOfArray array = new RangeOfArray(uperIndex, lowerIndex);   
                 for (int i = 0; i < array.Arr.Length; i++)
                 {
                     array.Arr[i] = rand.Next(10);
